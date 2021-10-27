@@ -100,6 +100,7 @@ void Swap (void *ptr1, void *ptr2, size_t nbyte)
 //!
 //! @param [in]  Ptr_Strs  pointer on array of struct string
 //! @param [in]  nstr      number of strings in array
+//! @param [in]  comp      pointer on the function compare
 //! @param [in]  flag      a flag showing where the sort with lines will be 
 //!                        started (from the beginning or from the end)
 //!
