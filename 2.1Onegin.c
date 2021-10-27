@@ -24,10 +24,10 @@ int main()
 
 	struct string *Index = ReadFile (name_file, &nstr, &ptr_buffer);
 
-	BubbleSort (Index, nstr, BEGIN);
+	BubbleSort (Index, nstr, StrCompare, BEGIN);
 	PrintStrs (Index, nstr, "SortBegin.txt");	
 
-	BubbleSort (Index, nstr, END);
+	BubbleSort (Index, nstr, StrCompare,  END);
 	PrintStrs (Index, nstr, "SortEnd.txt");
 
 	PrintSource (ptr_buffer + 1, nstr, "SourceFile.txt");

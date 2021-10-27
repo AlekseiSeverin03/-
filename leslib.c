@@ -108,15 +108,15 @@ void Swap (void *ptr1, void *ptr2, size_t nbyte)
 //! @note  "flag" parameter allows you to choose where to start sotr strings.
 //--------------------------------------------------------------------------------------------------------
 
-void BubbleSort (struct string *Ptr_Strs, size_t nstr, int flag)
+void BubbleSort (struct string *Ptr_Strs, size_t nstr, int (*comp)(const char *, const char *, size_t, size_t, int), int flag)
 {
 	assert (Ptr_Strs != NULL);
 	assert (nstr >= 0);
 
 	for (int nPass = 0; nPass < nstr - 1; nPass++)
 		for (int i = 0; i < nstr - 1; i++)
-			if (StrCompare (Ptr_Strs[i].ptr_str, Ptr_Strs[i+1].ptr_str,
-			    Ptr_Strs[i].len_str, Ptr_Strs[i+1].len_str, flag) > 0)
+			if ((*comp)(Ptr_Strs[i].ptr_str, Ptr_Strs[i+1].ptr_str,
+			            Ptr_Strs[i].len_str, Ptr_Strs[i+1].len_str, flag) > 0)
 			{
 				Swap (&Ptr_Strs[i], &Ptr_Strs[i+1], sizeof (Ptr_Strs[i]));
 			}
